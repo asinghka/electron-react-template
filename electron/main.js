@@ -15,7 +15,11 @@ const createWindow = () => {
     })
 
     if (isDev) {
-        mainWindow.loadURL('http://localhost:5173')
+        // Making sure that the Server has started before
+        // the URL is loaded
+        setTimeout(() => {
+            mainWindow.loadURL('http://localhost:5173');
+        }, 100);
         mainWindow.webContents.openDevTools()
     } else {
         mainWindow.loadFile(path.join(__dirname, '..', 'dist/index.html'))
