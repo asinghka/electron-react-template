@@ -7,8 +7,15 @@ const isDev = !app.isPackaged;
 
 const createWindow = () => {
     const mainWindow = new BrowserWindow({
-        width: 1920,
-        height: 1080,
+        width: 1280,
+        height: 720,
+        backgroundColor: '#030712',
+        titleBarStyle: 'hidden',
+        titleBarOverlay: {
+            color: '#030712',
+            symbolColor: '#9ca3af',
+            height: 32
+        },
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
